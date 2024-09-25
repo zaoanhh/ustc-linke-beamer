@@ -1,0 +1,209 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{ustcbeamer}
+%\usepackage[utf8]{inputenc}
+%\usepackage{xeCJK}
+
+% % 定义语言选择，默认为英语
+\newif\if@en\@entrue
+\DeclareOption{en}{\@entrue}
+\DeclareOption{cn}{\@enfalse}
+\DeclareOption*{\OptionNotUsed}
+\ProcessOptions\relax
+
+\RequirePackage{ctex}
+\RequirePackage{bm}
+\RequirePackage{xhfill}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}%画箭头用的包
+\RequirePackage{wrapfig}%浮在文字旁边的图
+\RequirePackage{graphicx}
+\RequirePackage{subfig}
+\RequirePackage{tikz}
+\RequirePackage{ragged2e}
+%\RequirePackage {mathtools}
+\RequirePackage{hyperref}
+\RequirePackage[backend=bibtex,style=numeric,sorting=none]{biblatex}
+%\usepackage{utopia} %font utopia imported
+\usetheme{CambridgeUS}
+% \RequirePackage{babel}
+\RequirePackage{pifont}
+\usecolortheme{dolphin}
+\setbeamerfont{footnote}{size=\tiny}
+% set fonts
+\RequirePackage{fontspec}
+
+% \DeclareOption*{\OptionNotUsed}
+% \ProcessOptions\relax
+
+
+\newfontfamily{\IEEEFont}[Path="fonts/",UprightFont = * ,BoldFont = *Bold,ItalicFont = *Italic]{NimbusRomNo9T}
+\newfontfamily{\ACMFont}[Path="fonts/"]{LinLibertineT.pfb.ttf}
+% \newfontfamily{\NotoFont}[Path="fonts/",UprightFont = *-Regular ,BoldFont = *-Bold,ItalicFont = *-Italic]{NotoSerif}
+\newfontfamily{\NotoFontSC}{NotoSansSC}[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]
+\newfontfamily{\shouxieFonta}[Path="fonts/"]{Lucida Handwriting Italic.ttf}
+\newfontfamily{\shouxieFontb}[Path="fonts/"]{qkmarisa.ttf}
+\newfontfamily{\shouxieFontc}[Path="fonts/"]{HyFRippling.ttf}
+\newfontfamily{\shouxieFontd}[Path="fonts/"]{HyFMemories.ttf}
+\newfontfamily{\geteFonta}[Path="fonts/"]{AliceInWonderland.ttf}
+\newfontfamily{\OptimaFont}[Path="fonts/"]{Optima.ttf}
+\newfontfamily{\AdobeFont}{Adobe-Garamond-Pro}[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]
+\newfontfamily{\LXGWWenKaiFont}{LXGWWenKai}[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]
+% 英文字体设置
+\if@en
+
+\usefonttheme{professionalfonts} %全部衬线
+\setbeamerfont{shouxie}{family=\shouxieFonta}
+\setbeamerfont{qd}{family=\AdobeFont}
+\setbeamerfont{shouxieBlod}{family=\shouxieFontd}
+\setbeamerfont{gete}{family=\geteFonta}
+% \setsansfont[Path="fonts/",UprightFont = *orm,BoldFont = *obx, ItalicFont=*it]{cmun}
+\setsansfont{LXGWWenKai}[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]
+% \setsansfont{Arial}
+% \setsansfont[Path="fonts/"]{LinLibertineT.pfb.ttf}
+% \setsansfont[Path="fonts/",UprightFont = * ,BoldFont = *Bold,ItalicFont = *Italic]{NimbusRomNo9T}
+
+
+\setbeamerfont{abstract}{family=\OptimaFont}
+\setbeamerfont{frametitle}{family=\OptimaFont}
+\setbeamerfont{structure}{family=\OptimaFont}
+\setbeamerfont{footline}{family=\OptimaFont}
+% \setCJKsansfont{sarasa-gothic-sc}[Path="fonts/",UprightFont = *-regular,BoldFont = *-bold,ItalicFont=*-italic]
+\setCJKsansfont[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]{NotoSansSC}
+% \setCJKsansfont{LXGWWenKai}[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]
+\else
+% 中文字体设置
+\usefonttheme{professionalfonts} %公式衬线，其他非衬
+% \setmainfont[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]{LXGWWenKai}
+\setsansfont[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]{LXGWWenKai}
+\setCJKsansfont[Path="fonts/",UprightFont = *-Regular,BoldFont = *-Bold]{LXGWWenKai}
+\setbeamerfont{shouxie}{family=\LXGWWenKaiFont}
+\setbeamerfont{shouxieBlod}{family=\LXGWWenKaiFont}
+\setbeamerfont{gete}{family=\LXGWWenKaiFont}
+\renewcommand{\sffamily}{\LXGWWenKaiFont}
+\setbeamerfont{frametitle}{family=\LXGWWenKaiFont}
+\fi
+%\setmainfont{family=\ACMFont}
+% set colors
+\addbibresource{ref.bib} %BibTeX数据文件及位置
+\definecolor{myNewColorA}{RGB}{29,104,174}
+\definecolor{myNewColorB}{RGB}{56,133,196}
+\definecolor{myNewColorC}{RGB}{98,164,208}
+\definecolor{myRed}{RGB}{216,56,58}
+\definecolor{myPurple}{RGB}{128, 0, 128}
+\definecolor{myGreen}{RGB}{34, 139, 34}
+\definecolor{myGrey}{RGB}{145,147,147}
+\definecolor{MicroSoftOrigin}{RGB}{252, 177, 49}
+\definecolor{MicroSoftBlue}{RGB}{79, 175, 255}
+\definecolor{MicroSoftGreen}{RGB}{0, 214, 125}
+\definecolor{MicroSoftRed}{RGB}{255, 59, 48}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg = white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg = white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg = white}
+\setbeamercolor*{item}{fg=myNewColorB}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\setbeamercolor{block title}{bg=myNewColorB!80!white,fg=white}
+\setbeamercolor{block body}{bg=myNewColorC!40!white}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamercolor{frametitle}{bg=myNewColorA, fg = white}
+% \setbeamercolor{math text}{fg=myPurple}
+
+\setbeamertemplate{headline}{\begin{beamercolorbox}[wd=\paperwidth,ht=3.0ex,dp=1.325ex]{}%
+\end{beamercolorbox}}
+\RequirePackage{hyperref}
+\newcommand{\ustcAndLinkeLogo}{\begin{tikzpicture}[overlay,remember picture]
+\node[left=0.3cm] at (current page.25){
+\includegraphics[width=0.8cm]{ustc.png}
+
+    \includegraphics[width=2cm]{linke.png}
+};
+\end{tikzpicture}}
+\newcommand{\ustcLogo}{\begin{tikzpicture}[overlay,remember picture]
+\node[left=0.3cm] at (current page.25){
+\includegraphics[width=0.8cm]{ustc.png}
+};
+\end{tikzpicture}}
+
+\newcommand{\linkeLogo}{\begin{tikzpicture}[overlay,remember picture]
+    \node[left=0.3cm] at (current page.25){
+        \includegraphics[width=2cm]{linke.png}
+    };
+    \end{tikzpicture}}
+
+\newcommand{\noLogo}{}
+% \newenvironment<>{varblock}[2][.95\textwidth]{%
+%   \setlength{\textwidth}{#1}
+%   \begin{actionenv}#3%
+%     \def\insertblocktitle{#2}%
+%     \par%
+%     \usebeamertemplate{block begin}}
+%     {\par%
+%     \usebeamertemplate{block end}%
+%   \end{actionenv}}
+
+%% 定义标题首字母大写
+\def\titlestyle#1{%
+\let\tc@w\@empty
+\protected@edef\tmp{\noexpand\tc@a#1\relax}\expandafter\tc@uc@\tmp}
+
+\def\tc@a{\futurelet\tmp\tc@aa}
+
+\def\tc@aa{%
+\ifcat a\noexpand\tmp\expandafter\tc@ab
+\else\expandafter\tc@ac\fi}
+
+\def\tc@ab#1{\edef\tc@w{\tc@w#1}\tc@a}
+
+\def\tc@ac{%
+\csname tc@@\tc@w\endcsname\expandafter\tc@uc\tc@w
+\let\tc@w\@empty
+\ifx\tmp\@sptoken\let\next\tc@sp
+\else\ifx\tmp\relax\let\next\relax
+\else\let\next\tc@nxt
+\fi\fi\next}
+
+\def\tc@sp#1{ \tc@a#1}
+\def\tc@nxt#1{#1\tc@a}
+
+\def\tc@uc#1{\uppercase{#1}}
+\def\tc@uc@#1#2{\uppercase{#1#2}}
+
+% 去除首字母大写
+% 冠词
+\let\tc@@a\@gobbletwo
+\let\tc@@an\@gobbletwo
+\let\tc@@the\@gobbletwo
+
+% 连接词
+\let\tc@@as\@gobbletwo
+\let\tc@@but\@gobbletwo
+\let\tc@@if\@gobbletwo
+\let\tc@@and\@gobbletwo
+
+% 介词
+\let\tc@@of\@gobbletwo
+\let\tc@@at\@gobbletwo
+\let\tc@@down\@gobbletwo
+\let\tc@@for\@gobbletwo
+\let\tc@@from\@gobbletwo
+\let\tc@@by\@gobbletwo
+\let\tc@@even\@gobbletwo
+\let\tc@@in\@gobbletwo
+\let\tc@@into\@gobbletwo
+\let\tc@@off\@gobbletwo
+\let\tc@@on\@gobbletwo
+\let\tc@@once\@gobbletwo
+\let\tc@@onto\@gobbletwo
+\let\tc@@or\@gobbletwo
+\let\tc@@so\@gobbletwo
+\let\tc@@over\@gobbletwo
+\let\tc@@than\@gobbletwo
+\let\tc@@that\@gobbletwo
+\let\tc@@up\@gobbletwo
+\let\tc@@down\@gobbletwo
+\let\tc@@upon\@gobbletwo
+\let\tc@@with\@gobbletwo
+\let\tc@@when\@gobbletwo
+\makeatother

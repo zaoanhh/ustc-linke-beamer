@@ -1,0 +1,180 @@
+%! TEX TS-program = xelatex
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes}
+\usepackage{graphicx}
+\usepackage{amsmath,mathtools}
+\usepackage{amsthm}
+
+\usepackage{thmtools}
+\usepackage{wrapfig}
+% \usepackage{mathpazo} % With Euler Font
+\usepackage{eulerpx}
+
+% \usepackage{fourier}
+
+\usepackage[en]{ustcbeamer}
+\usepackage{shadowtext}
+\usepackage{siunitx}
+\usepackage{tikz-3dplot}
+\usepackage{physics}
+\usetikzlibrary{chains,scopes,positioning,backgrounds,shapes,fit,shadows,calc,arrows.meta,shapes.geometric}
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,math}
+\usepackage{circuitikz}
+\graphicspath{{figures/}}
+% \RequirePackage{amsmath,amsfonts}
+\newcommand{\mylogo}{\noLogo}%linkeLogo, ustcLogo, or ustcAndLinkeLogo
+\newcommand{\romanN[1]}{\uppercase\expandafter{\romannumeral #1}}
+\newcommand{\titlewithlogo[1]}{\frametitle{\titlestyle{#1} \mylogo}}
+\newcommand{\zhushi[1]}{{\usebeamerfont{gete}\color{myRed} #1}}
+\newcommand{\qiangdiao[1]}{{\usebeamerfont{qd}\color{myNewColorA} \Large #1}}
+\newcommand{\feiji}{\color{myNewColorA}\ding{40}}
+\newcommand{\lanse[1]}{\color{myNewColorA} #1}
+\newcommand{\ie}{\emph{i.e.}\ }
+\newcommand{\eg}{\emph{e.g.}\ }
+\newcommand{\etc}{\emph{etc.}}
+\newcommand\mytwocolumn[4]{
+  \begin{columns}
+  \begin{column}[t]{#1\linewidth}
+    \onslide<1->{
+      #3
+    }
+  \end{column}
+  \hfill
+  \begin{column}[t]{#2\linewidth}
+    \onslide<2->{
+      #4
+  }
+  \end{column}
+  \hfill
+  \end{columns}}
+
+
+\newcommand\mytwocolumncolor[5]{
+  \setlength{\fboxrule}{1pt}   
+\begin{columns}
+  \begin{column}{#1\linewidth}
+    \onslide<1->{\fcolorbox{myNewColorA}{MicroSoftOrigin!50!}{
+        \begin{minipage}[t][{#3}cm]{\linewidth}
+          #4
+        \end{minipage}
+    }
+    }
+  \end{column}
+  \hfill
+  \begin{column}{#2\linewidth}
+    \onslide<2->{\fcolorbox{myNewColorA}{MicroSoftGreen!50!}{
+      \begin{minipage}[t][{#3}cm]{\linewidth}
+        #5
+      \end{minipage}
+  }
+  }
+  \end{column}
+  \hfill
+  \end{columns}}
+%------------------------------------------------------------
+
+
+
+\titlegraphic{\includegraphics[height=0.8cm]{ustc1.png}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[USTC]{你好}
+\subtitle{world}
+\author[Fei. S]{Fei Shang}
+
+\institute[shf\_1998@outlook.com]{USTC}
+\date[\today]
+{}
+\newenvironment{myitemize}{%
+   \setlength{\topsep}{0pt}
+   \setlength{\partopsep}{0pt}
+   \renewcommand*{\@listi}{\leftmargin\leftmargini \parsep\z@ \topsep\z@ \itemsep\z@}
+   \let\@listI\@listi
+   \itemize
+}{\enditemize}
+%------------------------------------------------------------
+%This block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Contents}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+
+\frame{\titlepage}
+
+\end{document}
+
+%The next statement creates the title page.
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+%------------------------------------------------------------
+\section{Introduction}
+    \begin{frame}{Introduction \mylogo}
+    This is a text.
+    \begin{enumerate}
+        \item hello World\footfullcite{shamir2010learning}
+    \end{enumerate}
+    
+    hello world!
+    
+    \end{frame}
+
+    
+
+\section{Conclusion}
+    \begin{frame}
+    \frametitle{Conclusion}
+    \begin{itemize}
+    \item[\ding{51}] 对号
+    \item[\ding{56}] 错号
+    \item[\ding{43}] 手指
+    \item[\ding{118}] Code 118
+    \item[\ding{170}] 心心
+\end{itemize}
+\end{frame}
+
+
+\footfullcite{pallaprolu2022wiffract}%cite
+\section*{Acknowledgement}  
+\begin{frame}
+\textcolor{myNewColorA}{\Huge{\centerline{Thank you!}}}
+\end{frame}
+
